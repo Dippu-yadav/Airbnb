@@ -86,7 +86,7 @@ http://localhost:4000
 Run these commands one by one:
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/Dippu-yadav/Airbnb.git
 ```
 
 ```bash
