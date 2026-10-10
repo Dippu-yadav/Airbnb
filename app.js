@@ -7,7 +7,6 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const { default: mongoose } = require('mongoose');
 const multer = require('multer');
-const url = "mongodb+srv://root:root@airbnb.sacjm0b.mongodb.net/airbnb?appName=Airbnb";
 
 // local module
 const userRoute = require('./routes/storeRouter');
@@ -16,14 +15,14 @@ const authRouter = require('./routes/authRouter');
 const rootDir = require('./utils/rootDir');
 const {error404} = require('./controllers/errors');
 
-
+require('dotenv').config();
 const app = express();
 
 app.set('view engine' ,'ejs');
 app.set('views','./views'); // first views is constant 2nd one is folder location in which i want to look for ejs files always without importing
 
 const store = new MongoDBStore({
-  uri : url,
+  uri : process.env.url,
   collection: 'session',
 })
 
@@ -77,7 +76,8 @@ app.use(error404);
 
 const port = 4000;
 
-mongoose.connect(url).then(()=>{
+mongoose.connect(process.env.url)
+.then(()=>{
   console.log("Connected to MongoDb.....");
   app.listen(port,()=>{console.log(`server running at http://localhost:${port}`)})
 }).catch((err)=>{
