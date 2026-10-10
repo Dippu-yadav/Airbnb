@@ -29,7 +29,7 @@ A Node.js and Express web application inspired by Airbnb. Users can sign up, log
 - bcryptjs
 - Tailwind CSS
 
-## Installation
+## How to Use After Cloning
 
 Clone the repository:
 
@@ -44,17 +44,31 @@ Install dependencies:
 npm install
 ```
 
-Create a `.env` file in the root folder:
+Create a `.env` file in the root folder. This file is not uploaded to GitHub, so every user must create it manually after cloning:
+
+```bash
+touch .env
+```
+
+Open `.env` and add your MongoDB connection URI:
 
 ```env
 url=your_mongodb_connection_string
 ```
 
-Example:
+If you are using MongoDB locally, use:
 
 ```env
 url=mongodb://127.0.0.1:27017/airbnb
 ```
+
+If you are using MongoDB Atlas, use your Atlas connection string:
+
+```env
+url=mongodb+srv://<username>:<password>@<cluster-url>/airbnb
+```
+
+Replace `<username>`, `<password>`, and `<cluster-url>` with your own MongoDB Atlas details.
 
 Start the project:
 
@@ -63,6 +77,50 @@ npm start
 ```
 
 Open the app in your browser:
+
+```txt
+http://localhost:4000
+```
+
+## Full Terminal Commands
+
+Run these commands one by one:
+
+```bash
+git clone <your-repository-url>
+```
+
+```bash
+cd 15fileupload
+```
+
+```bash
+npm install
+```
+
+```bash
+touch .env
+```
+
+Then add this inside `.env`:
+
+```env
+url=mongodb://127.0.0.1:27017/airbnb
+```
+
+Or, for MongoDB Atlas:
+
+```env
+url=mongodb+srv://<username>:<password>@<cluster-url>/airbnb
+```
+
+Finally, start the server:
+
+```bash
+npm start
+```
+
+The app will run at:
 
 ```txt
 http://localhost:4000
