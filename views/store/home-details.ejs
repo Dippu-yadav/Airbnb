@@ -1,0 +1,119 @@
+<%- include('../partials/head') %>
+</head>
+
+<body class="min-h-screen bg-linear-to-br from-slate-50 via-white to-rose-50 font-sans">
+
+  <%- include('../partials/nav') %>
+
+  <main class="mx-auto max-w-7xl px-6 py-12">
+
+    <div class="overflow-hidden rounded-4xl bg-white shadow-2xl">
+
+      <!-- Hero Image -->
+      <div class="relative">
+
+        <img
+          src=" <%= home.photoUrl %> "
+          alt="<%= home.housename %>"
+          class="h-125 w-full object-cover">
+
+        <div class="absolute bottom-6 left-6 rounded-2xl bg-black/60 px-6 py-3 backdrop-blur-md">
+          <h1 class="text-4xl font-bold text-white">
+            <%= home.housename %>
+          </h1>
+        </div>
+
+      </div>
+
+      <!-- Content -->
+      <div class="grid gap-10 p-10 lg:grid-cols-3">
+
+        <!-- Left Section -->
+        <div class="lg:col-span-2">
+
+          <div class="mb-8 flex flex-wrap items-center gap-4">
+
+            <span class="rounded-full bg-yellow-100 px-4 py-2 font-semibold text-yellow-700">
+              ⭐ <%= home.rating %>
+            </span>
+
+            <span class="rounded-full bg-emerald-100 px-4 py-2 font-semibold text-emerald-700">
+              Available
+            </span>
+
+            <span class="rounded-full bg-blue-100 px-4 py-2 font-semibold text-blue-700">
+              📍 <%= home.location %>
+            </span>
+
+          </div>
+
+          <h2 class="mb-4 text-3xl font-bold text-gray-900">
+            About this place
+          </h2>
+
+          <p class="leading-8 text-gray-600">
+            Enjoy a premium stay in one of our carefully selected properties.
+            Experience luxury, comfort, modern amenities and a memorable vacation
+            with your friends and family.
+          </p>
+
+          <div class="mt-10 grid gap-6 sm:grid-cols-3">
+
+            <div class="rounded-2xl bg-gray-50 p-5 text-center">
+              <div class="text-3xl">🛏️</div>
+              <p class="mt-2 font-semibold">3 Bedrooms</p>
+            </div>
+
+            <div class="rounded-2xl bg-gray-50 p-5 text-center">
+              <div class="text-3xl">🚿</div>
+              <p class="mt-2 font-semibold">2 Bathrooms</p>
+            </div>
+
+            <div class="rounded-2xl bg-gray-50 p-5 text-center">
+              <div class="text-3xl">📶</div>
+              <p class="mt-2 font-semibold">Free WiFi</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Booking Card -->
+        <div>
+
+          <div class="sticky top-8 rounded-3xl border border-gray-100 bg-white p-8 shadow-xl">
+
+            <div class="mb-6">
+              <span class="text-4xl font-bold text-gray-900">
+                ₹<%= home.price %>
+              </span>
+
+              <span class="text-gray-500">
+                / night
+              </span>
+            </div>
+
+            <button
+              class="w-full rounded-2xl bg-linear-to-r from-rose-500 via-pink-500 to-orange-400 py-4 text-lg font-bold text-white transition hover:scale-105">
+              Reserve Now
+            </button>
+
+            <%- include('../partials/submitFavourite') %>
+
+            <p class="mt-6 text-center text-sm text-gray-500">
+              You won't be charged yet
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+
+</html>

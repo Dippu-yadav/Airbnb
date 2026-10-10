@@ -1,0 +1,80 @@
+<%- include('../partials/head') %>
+</head>
+<body class="min-h-screen bg-gray-100 font-sans">
+  <%- include('../partials/nav') %>
+  <section class="flex flex-col items-center justify-center px-6 py-24 text-center">
+  <div class="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
+
+    <h1 class="mb-6 text-center text-4xl font-bold text-rose-500">
+      <%= editing ? "Edit Your" : "Add New" %> Home
+    </h1>
+
+    <form action="/host/<%= editing ? "edit-home" : "add-home" %>" method="POST" class="space-y-5" enctype="multipart/form-data" >
+
+      <div class="space-y-3">
+        <label class="mb-2 block text-2xl font-semibold text-gray-700">
+          House Name
+        </label>
+
+        <input type="hidden" name="id" value="<%= editing ? home._id : "" %>">
+        <input
+          type="text"
+          name="housename"
+          value="<%= editing ? home.housename : "" %>"
+          placeholder="Enter house name"
+          class="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-rose-500 focus:ring-2 focus:ring-rose-200"
+        >
+
+        <input
+          type="number"
+          name="price"
+          value="<%= editing ? home.price : "" %>"
+          placeholder="Price"
+          class="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-rose-500 focus:ring-2 focus:ring-rose-200"
+        >
+
+        <input
+          type="number"
+          step="0.1"
+          name="rating"
+          value="<%= editing ? home.rating : "" %>"
+          placeholder="Rate your House ⭐"
+          class="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-rose-500 focus:ring-2 focus:ring-rose-200"
+        >
+        <input
+          type="text"
+          name="location"
+          value="<%= editing ? home.location : "" %>"
+          placeholder="Location"
+          class="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-rose-500 focus:ring-2 focus:ring-rose-200"
+        >
+
+        <input
+          type="file"
+          name="photo"
+          accept="image/*"
+          class="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-rose-500 focus:ring-2 focus:ring-rose-200"
+        >
+
+        <textarea
+          type="text"
+          name="description"
+          placeholder="Describe your home..."
+          class="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-rose-500 focus:ring-2 focus:ring-rose-200"
+        ><%= editing ? home.description : "" %></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full rounded-xl bg-rose-500 py-3 text-lg font-semibold text-white shadow-md transition duration-300 hover:bg-rose-600 hover:scale-[1.02]"
+      >
+        <%= editing ? "Update Home" : "Add Home" %>
+      </button>
+
+    </form>
+
+  </div>
+  </section>
+
+</body>
+</html>

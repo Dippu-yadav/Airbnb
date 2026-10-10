@@ -1,0 +1,50 @@
+<nav class="flex items-center gap-9 bg-white px-10 py-4 shadow-md">
+
+  <a href="/" class="text-3xl font-bold text-rose-500">
+    Airbnb
+  </a>
+
+ 
+  <% if(isLoggedIn){ %>
+    <% if(user && user.usertype === 'guest'){ %>
+      <a href="/bookings" class="rounded-lg bg-rose-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-rose-600">
+        Bookings
+      </a>
+
+      <a href="/home-list" class="rounded-lg bg-rose-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-rose-600">
+        Home List
+      </a>
+
+      <a href="/favourites" class="rounded-lg bg-rose-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-rose-600">
+        Favourite
+      </a>
+    <% }else{ %>
+
+      <a href="/host/host-home-list" class="rounded-lg bg-rose-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-rose-600">
+        Host Home List
+      </a>
+
+      <a href="/host/add-home" class="rounded-lg bg-rose-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-rose-600">
+        Add Home
+      </a>
+    <% } %>
+  <% } %>
+
+
+  <% if(!isLoggedIn){ %>
+  <a href="/signup" class="ml-auto rounded-lg bg-rose-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-rose-600">
+    SignUp
+  </a>
+
+  <a href="/login" class="rounded-lg bg-rose-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-rose-600">
+    Login
+  </a>
+  <%}else{ %>
+  <form action="/logout" method="POST" class="ml-auto rounded-lg bg-rose-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-rose-600">
+    <button type="submit" >
+      Logout
+    </button>
+  </form>
+  <% } %>
+
+</nav>
